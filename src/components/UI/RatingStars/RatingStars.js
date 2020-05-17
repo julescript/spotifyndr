@@ -2,7 +2,6 @@ import React from 'react';
 import classes from './RatingStars.module.css';
 import FilledStar from '../../../assets/images/star_filled.svg'
 import EmptyStar from '../../../assets/images/star_empty.svg'
-import { UNIQUE_ID } from '../../../utils/common';
 
 const RatingStars = (props) => {
     let n = Math.round(parseFloat(props.rating))
