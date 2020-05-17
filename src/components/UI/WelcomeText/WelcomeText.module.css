@@ -1,0 +1,37 @@
+.WelcomeText {
+    min-height: calc(100vh - 220px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.WelcomeText h1 {
+    margin: 0;
+    font-size: 100px;
+    font-weight: 900;
+    color: var(--color-dark-gray);
+    margin-bottom: 10px;
+}
+
+
+.WelcomeText h2 {
+    margin: 0;
+    font-size: 50px;
+    font-weight: 900;
+    color: var(--color-dark-gray);
+}
+
+.WelcomeText hr {
+    margin: 0;
+    margin: 40px 0;
+    width: 150px;
+    border: 5px solid var(--color-green);
+    border-radius: 6px;
+}
+
+.WelcomeText h3 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--color-light-gray);
+}

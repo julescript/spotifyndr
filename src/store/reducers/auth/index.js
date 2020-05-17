@@ -3,7 +3,8 @@ import { updateObject } from '../../../utils/common';
 
 const initialState = {
     AUTH_TOKEN: null,
-    USER: null
+    USER: null,
+    IS_AUTHORIZED: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -13,9 +14,9 @@ const reducer = (state = initialState, action) => {
         case actionTypes.DELETE_AUTH:
             return updateObject(state, {AUTH_TOKEN: null})
         case actionTypes.ADD_USER:
-            return updateObject(state, {USER: action.user})
+            return updateObject(state, {USER: action.user, IS_AUTHORIZED: true})
         case actionTypes.DELETE_USER:
-                return updateObject(state, {USER: null})
+                return updateObject(state, {USER: null, IS_AUTHORIZED: false})
         default:
             return state;
     }

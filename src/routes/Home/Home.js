@@ -9,6 +9,7 @@ import ArtistCard from '../../components/cards/ArtistCard/ArtistCard';
 import { isEmptyOrSpaces } from '../../utils/common';
 import axios from '../../utils/axios'
 import { connect } from 'react-redux';
+import WelcomeText from '../../components/UI/WelcomeText/WelcomeText';
 
 class Home extends Component {
 
@@ -73,10 +74,16 @@ class Home extends Component {
         return (
             <Container>
                 <NavBar enterPressed={this.handleSearch} user={this.props.user}/>
-                <SectionTitle title={'Artists'} subtitle={'Showing results for “'+this.state.searchQuery+'"'}/>
-                <CardsGrid>
-                    {results}
-                </CardsGrid>
+                {this.state.searchQuery !== '' ? (
+                    <React.Fragment>
+                        <SectionTitle title={'Artists'} subtitle={'Showing results for “'+this.state.searchQuery+'"'}/>
+                        <CardsGrid>
+                            {results}
+                        </CardsGrid>
+                    </React.Fragment>
+                ) : (
+                    <WelcomeText name={this.props.user ? this.props.user.display_name : 'Hello'}/>
+                )}
             </Container>
         );
     }

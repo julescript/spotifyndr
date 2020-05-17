@@ -9,12 +9,19 @@ class NavBar extends Component {
             <div className={classes.NavBar}>
                 <div className={classes.Search}>
                     <IconLogo />
-                    <input type="search" placeholder="Search Spotify artists" onChange={this.props.onChange} onKeyDown={this.props.enterPressed}/>
+                    <input type="search" disabled={this.props.user ? false : true} placeholder="Search Spotify artists" onChange={this.props.onChange} onKeyDown={this.props.enterPressed}/>
                 </div>
-                <div className={classes.Account}>
-                    <div>{this.props.user.display_name}</div>
-                    <img src={null} alt=''/>
-                </div>
+                {this.props.user ? (
+                    <div className={classes.Account}>
+                        <div>{this.props.user.display_name}</div>
+                        <img src={null} alt=''/>
+                    </div>
+                ) : (
+                    <div className={classes.Account}>
+                        <div>Loading</div>
+                        <img src={null} alt=''/>
+                    </div>
+                )}
             </div>
         );
     }

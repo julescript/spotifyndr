@@ -27,18 +27,7 @@ class Landing extends Component {
         let token = hash.access_token;
 
         if (token) {
-            axios.get('/me/', {
-                headers: {
-                    'Authorization': 'Bearer ' + token,
-                }
-            })
-                .then(res => {
-                    this.props.setToken(token);
-                    this.props.setUser(res.data)
-                })
-                .catch(_ => {
-                    console.log('Something went wrong')
-                })
+            this.props.setToken(token);
         }
         else {
             console.log("Not authorized yet") 
