@@ -17,7 +17,7 @@ class Landing extends Component {
         url += '&client_id=' + encodeURIComponent(my_client_id);
         url += '&scope=' + encodeURIComponent('user-read-private user-read-email');
         if (env_check) {
-            url += '&redirect_uri=https://julescript.github.io/spotifyndr/#/';
+            url += '&redirect_uri=https://julescript.github.io/spotifyndr';
         }
         else {
             url += '&redirect_uri=http://localhost:3000';
