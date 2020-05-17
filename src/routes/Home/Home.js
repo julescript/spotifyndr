@@ -24,51 +24,8 @@ class Home extends Component {
 
     componentDidMount() {
     }
-        
+
     handleSearch = (e) => {
-        if (e.key === 'Enter' &&  !isEmptyOrSpaces(e.target.value)) {
-            this.setState({
-                searchQuery: e.target.value,
-                loading: true,
-                error: false
-            })
-            this.props.onQueryUpdated(e.target.value)
-            this.props.onLoadingUpdated(true);
-            axios.get('/search/', {
-                headers: {
-                    'Authorization': 'Bearer ' + this.props.token,
-                },
-                params: {
-                    'q': e.target.value,
-                    'type': 'artist',
-                    'limit': 12
-                }
-            })
-                .then(res => {
-                    this.setState({
-                        searchResults: res.data.artists,
-                        loading: false,
-                        error: false
-                    })
-                    console.log('GOT EM')
-                    this.props.onResultsUpdated(res.data.artists)
-                    this.props.onLoadingUpdated(false)
-                })
-                .catch(err => {
-                    this.setState({
-                        searchResults: null,
-                        loading: false,
-                        error: err.response
-                    })
-                    console.log('GOT EROOR')
-                    this.props.onResultsUpdated(null)
-                    this.props.onLoadingUpdated(false)
-                })
-
-        }
-    }
-
-    handleSearchLive = (e) => {
         if (!isEmptyOrSpaces(e.target.value)) {
             this.setState({
                 searchQuery: e.target.value,
@@ -137,8 +94,7 @@ class Home extends Component {
         }
         return (
             <Container>
-                {/* <NavBar enterPressed={this.handleSearch} user={this.props.user} query={this.props.query}/> */}
-                <NavBar onChange={this.handleSearchLive} user={this.props.user} query={this.props.query}/>
+                <NavBar onChange={this.handleSearch} user={this.props.user} query={this.props.query}/>
                 {this.props.query !== '' ? (
                     <React.Fragment>
                         <SectionTitle title={'Artists'} subtitle={'Showing results for “'+this.props.query+'"'}/>
