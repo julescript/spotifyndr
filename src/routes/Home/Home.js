@@ -75,7 +75,6 @@ class Home extends Component {
                         key={artist.id}
                         onClick={() => this.ArtistClickedHandler(artist.id)} />
                 );
-                console.log(artist)
             });
         }
         return (

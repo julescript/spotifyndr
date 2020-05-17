@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import classes from './Landing.module.css';
 import { withRouter } from 'react-router-dom'
 import { my_client_id } from '../../utils/common';
-import axios from '../../utils/axios'
 import Container from '../../hoc/Container/Container';
 
 import { connect } from 'react-redux';
