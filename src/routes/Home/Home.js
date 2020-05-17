@@ -72,7 +72,7 @@ class Home extends Component {
         }
         return (
             <Container>
-                <NavBar enterPressed={this.handleSearch}/>
+                <NavBar enterPressed={this.handleSearch} user={this.props.user}/>
                 <SectionTitle title={'Artists'} subtitle={'Showing results for “'+this.state.searchQuery+'"'}/>
                 <CardsGrid>
                     {results}
