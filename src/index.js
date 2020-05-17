@@ -10,6 +10,7 @@ import authReducer from './store/reducers/auth';
 import './styles/index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import ScrollToTop from './utils/ScrollToTop';
 
 const rootReducer = combineReducers({
   authReducer: authReducer
@@ -21,6 +22,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <HashRouter basename='/'>
+        <ScrollToTop />
         <App />
       </HashRouter>
     </Provider>
