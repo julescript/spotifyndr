@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/spotifyndr/static/css/main.592080a7.chunk.css",
-    "main.js": "/spotifyndr/static/js/main.044c17d8.chunk.js",
-    "main.js.map": "/spotifyndr/static/js/main.044c17d8.chunk.js.map",
+    "main.js": "/spotifyndr/static/js/main.1d7d876b.chunk.js",
+    "main.js.map": "/spotifyndr/static/js/main.1d7d876b.chunk.js.map",
     "runtime-main.js": "/spotifyndr/static/js/runtime-main.3db4c61e.js",
     "runtime-main.js.map": "/spotifyndr/static/js/runtime-main.3db4c61e.js.map",
     "static/js/2.8e484e08.chunk.js": "/spotifyndr/static/js/2.8e484e08.chunk.js",
     "static/js/2.8e484e08.chunk.js.map": "/spotifyndr/static/js/2.8e484e08.chunk.js.map",
     "index.html": "/spotifyndr/index.html",
-    "precache-manifest.a97c39b29a0d8434fdcc4e2a91483aed.js": "/spotifyndr/precache-manifest.a97c39b29a0d8434fdcc4e2a91483aed.js",
+    "precache-manifest.95e079a097787fc9961e9d87a4d8be52.js": "/spotifyndr/precache-manifest.95e079a097787fc9961e9d87a4d8be52.js",
     "service-worker.js": "/spotifyndr/service-worker.js",
     "static/css/main.592080a7.chunk.css.map": "/spotifyndr/static/css/main.592080a7.chunk.css.map",
     "static/js/2.8e484e08.chunk.js.LICENSE.txt": "/spotifyndr/static/js/2.8e484e08.chunk.js.LICENSE.txt",
@@ -23,6 +23,6 @@
     "static/js/runtime-main.3db4c61e.js",
     "static/js/2.8e484e08.chunk.js",
     "static/css/main.592080a7.chunk.css",
-    "static/js/main.044c17d8.chunk.js"
+    "static/js/main.1d7d876b.chunk.js"
   ]
 }
