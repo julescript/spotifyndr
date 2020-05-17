@@ -6,7 +6,7 @@ const Footer = (props) => (
     <div className={classes.Footer}>
         <Container className={classes.Container}>
             <div className={classes.Logo}>Spotifyndr</div>
-            <div className={classes.Copyright}>Made with ❤️ by <a href='https://github.com/julescript' target='_blank'>julescript</a></div>
+            <div className={classes.Copyright}>Made with <span role="img" aria-label='heart emoji'>❤️</span> by <a href='https://github.com/julescript' rel="noopener noreferrer" target='_blank'>julescript</a></div>
         </Container>
     </div>
 );
