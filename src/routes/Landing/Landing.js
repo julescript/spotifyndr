@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classes from './Landing.module.css';
 import { withRouter } from 'react-router-dom'
-import { my_client_id } from '../../utils/common';
+import { my_client_id, env_check } from '../../utils/common';
 import Container from '../../hoc/Container/Container';
 
 import { connect } from 'react-redux';
@@ -16,7 +16,12 @@ class Landing extends Component {
         url += '?response_type=token';
         url += '&client_id=' + encodeURIComponent(my_client_id);
         url += '&scope=' + encodeURIComponent('user-read-private user-read-email');
-        url += '&redirect_uri=http://localhost:3000';
+        if (env_check) {
+            url += '&redirect_uri=https://julescript.github.io/spotifyndr';
+        }
+        else {
+            url += '&redirect_uri=http://localhost:3000';
+        }
         window.location = url; 
     }
 
