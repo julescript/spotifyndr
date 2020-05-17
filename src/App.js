@@ -29,8 +29,8 @@ class App extends Component {
         return initial;
         }, {});
 
-    let token = hash.access_token;
-
+    let token = hash['/access_token'];
+    console.log(token) 
     if (token) {
         this.props.setToken(token);
     }
@@ -67,8 +67,7 @@ class App extends Component {
       return (
         <Switch>
           <Route path='/' exact component={Landing}/>
-          <Route path='/artists/:id/albums' exact component={Albums}/>
-          <Route exact path="*" render={() => (<Redirect to='/' />)} />
+          {/* <Route exact path="*" render={() => (<Redirect to='/' />)} /> */}
         </Switch>
       );
     }
@@ -84,6 +83,7 @@ class App extends Component {
             <Route path='/artists/:id/albums' exact component={Albums}/>
             <Route exact path="/artists/:id" render={() => (<Redirect to='/' />)} />
             <Route exact path="/artists" render={() => (<Redirect to='/' />)} />
+            <Route exact path="/:access_token" render={() => (<Redirect to='/' />)} />
           </Switch>
         </Layout>
       );
