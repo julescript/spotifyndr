@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Landing from './routes/Landing/Landing'
 import { connect } from 'react-redux';
+import Home from './routes/Home/Home';
 
 class App extends Component {
   render() {
@@ -16,7 +17,7 @@ class App extends Component {
     else {
       return (
         <Switch>
-          <Route path='/' exact render={() => ('hello world')}/>
+          <Route path='/' exact component={Home}/>
         </Switch>
       );
     }

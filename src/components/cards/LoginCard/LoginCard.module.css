@@ -4,7 +4,7 @@
     text-align: left;
     box-sizing: border-box;
     border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-1) !important;
+    box-shadow: var(--shadow-1);
 }
 
 .LoginCard h3{
@@ -12,6 +12,7 @@
     font-size: 30px;
     margin: 0;
     margin-bottom: 30px;
+    font-weight: 900;
 }
 
 .LoginCard button{
