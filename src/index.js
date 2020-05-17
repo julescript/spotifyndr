@@ -6,6 +6,7 @@ import { HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 import authReducer from './store/reducers/auth';
+import searchReducer from './store/reducers/search';
 
 import './styles/index.css';
 import App from './App';
@@ -13,7 +14,8 @@ import * as serviceWorker from './serviceWorker';
 import ScrollToTop from './utils/ScrollToTop';
 
 const rootReducer = combineReducers({
-  authReducer: authReducer
+  authReducer: authReducer,
+  searchReducer: searchReducer
 });
 
 const store = createStore(rootReducer);

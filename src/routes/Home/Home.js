@@ -11,6 +11,7 @@ import axios from '../../utils/axios'
 import { connect } from 'react-redux';
 import WelcomeText from '../../components/UI/WelcomeText/WelcomeText';
 import Spinner from '../../components/UI/Spinner/Spinner'
+import * as actionTypes from '../../store/actions/search/index';
 
 class Home extends Component {
 
@@ -31,6 +32,8 @@ class Home extends Component {
                 loading: true,
                 error: false
             })
+            this.props.onQueryUpdated(e.target.value)
+            this.props.onLoadingUpdated(true);
             axios.get('/search/', {
                 headers: {
                     'Authorization': 'Bearer ' + this.props.token,
@@ -47,6 +50,9 @@ class Home extends Component {
                         loading: false,
                         error: false
                     })
+                    console.log('GOT EM')
+                    this.props.onResultsUpdated(res.data.artists)
+                    this.props.onLoadingUpdated(false)
                 })
                 .catch(err => {
                     this.setState({
@@ -54,7 +60,11 @@ class Home extends Component {
                         loading: false,
                         error: err.response
                     })
+                    console.log('GOT EROOR')
+                    this.props.onResultsUpdated(null)
+                    this.props.onLoadingUpdated(false)
                 })
+
         }
     }
 
@@ -66,8 +76,9 @@ class Home extends Component {
 
     render () {
         let results = null;
-        if (this.state.searchResults && !this.state.loading) {
-            results = this.state.searchResults.items.map(artist => {
+        if (this.props.results && !this.props.loading) {
+            console.log(this.props.results)
+            results = this.props.results.items.map(artist => {
                 return (
                     <ArtistCard img={artist.images[1] ? artist.images[1].url : null} 
                         name={artist.name} 
@@ -78,16 +89,16 @@ class Home extends Component {
                 );
             });
         }
-        if (this.state.loading) {
+        if (this.props.loading) {
             results = <Spinner />
         }
         return (
             <Container>
-                <NavBar enterPressed={this.handleSearch} user={this.props.user}/>
-                {this.state.searchQuery !== '' ? (
+                <NavBar enterPressed={this.handleSearch} user={this.props.user} query={this.props.query}/>
+                {this.props.query !== '' ? (
                     <React.Fragment>
-                        <SectionTitle title={'Artists'} subtitle={'Showing results for “'+this.state.searchQuery+'"'}/>
-                        {!this.state.loading ? <CardsGrid>{results}</CardsGrid> : results}
+                        <SectionTitle title={'Artists'} subtitle={'Showing results for “'+this.props.query+'"'}/>
+                        {!this.props.loading ? <CardsGrid>{results}</CardsGrid> : results}
                     </React.Fragment>
                 ) : (
                     <WelcomeText name={this.props.user ? this.props.user.display_name : 'Hello'}/>
@@ -100,12 +111,18 @@ class Home extends Component {
 const mapStateToProps = state => {
     return {
         user: state.authReducer.USER,
-        token: state.authReducer.AUTH_TOKEN
+        token: state.authReducer.AUTH_TOKEN,
+        results: state.searchReducer.SEARCH_RESULTS,
+        query: state.searchReducer.SEARCH_QUERY,
+        loading: state.searchReducer.loading
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
+        onResultsUpdated: (data) => dispatch({type: actionTypes.UPDATE_SARCH, data: data}),
+        onQueryUpdated: (data) => dispatch({type: actionTypes.UPDATE_QUERY, data: data}),
+        onLoadingUpdated: (value) => dispatch({type: actionTypes.SET_LOADING, value: value})
     };
 };
 
