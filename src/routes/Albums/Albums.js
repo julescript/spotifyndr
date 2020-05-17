@@ -8,6 +8,7 @@ import AlbumCard from '../../components/cards/AlbumCard/AlbumCard';
 import BackButton from '../../components/UI/buttons/BackButton/BackButton';
 import axios from '../../utils/axios'
 import { connect } from 'react-redux';
+import Spinner from '../../components/UI/Spinner/Spinner';
 
 class Albums extends Component {
 
@@ -47,6 +48,10 @@ class Albums extends Component {
         this.props.history.goBack()
     }
 
+    previewButtonClickedHandler = (url) => {
+        window.open(url, '_blank')
+    }
+
     render () {
         let albums = null;
         if (this.state.albums && !this.state.loading) {
@@ -57,22 +62,23 @@ class Albums extends Component {
                         name={album.name}
                         date={album.release_date} 
                         tracks={album.total_tracks}
-                        onClick={'onClick'}
+                        onClick={() => this.previewButtonClickedHandler(album.external_urls.spotify)}
                         disabled={false}/> 
                 );
             });
         }
+        if (this.state.loading) {
+            albums = <Spinner />
+        }
         return (
             <Container className={classes.Albums}>
                 <div className={classes.Header}>
-                    <SectionTitle title={'Eminem'} subtitle={'Albums'}/>
+                    <SectionTitle title={this.state.albums ? this.state.albums[0].artists[0].name : 'Artist'} subtitle={'Albums'}/>
                     <div className={classes.Back}>
                         <BackButton onClick={this.backButtonHandler}/>
                     </div>
                 </div>
-                <CardsGrid>
-                    {albums}
-                </CardsGrid>
+                {!this.state.loading ? <CardsGrid>{albums}</CardsGrid> : albums}
             </Container>
         );
     }

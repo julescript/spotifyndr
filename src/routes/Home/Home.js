@@ -10,6 +10,7 @@ import { isEmptyOrSpaces } from '../../utils/common';
 import axios from '../../utils/axios'
 import { connect } from 'react-redux';
 import WelcomeText from '../../components/UI/WelcomeText/WelcomeText';
+import Spinner from '../../components/UI/Spinner/Spinner'
 
 class Home extends Component {
 
@@ -77,15 +78,16 @@ class Home extends Component {
                 );
             });
         }
+        if (this.state.loading) {
+            results = <Spinner />
+        }
         return (
             <Container>
                 <NavBar enterPressed={this.handleSearch} user={this.props.user}/>
                 {this.state.searchQuery !== '' ? (
                     <React.Fragment>
                         <SectionTitle title={'Artists'} subtitle={'Showing results for “'+this.state.searchQuery+'"'}/>
-                        <CardsGrid>
-                            {results}
-                        </CardsGrid>
+                        {!this.state.loading ? <CardsGrid>{results}</CardsGrid> : results}
                     </React.Fragment>
                 ) : (
                     <WelcomeText name={this.props.user ? this.props.user.display_name : 'Hello'}/>
