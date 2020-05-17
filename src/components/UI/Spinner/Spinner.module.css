@@ -13,7 +13,7 @@
     margin-top: 40px;
 }
 .light {
-  background-color: var(--color-spinner-light) !important;
+  background-color: var(--color-lighter-gray) !important;
 }
 .Loader {
   font-size: 10px;

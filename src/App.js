@@ -8,6 +8,7 @@ import Albums from './routes/Albums/Albums';
 
 import * as actionTypes from './store/actions/auth';
 import axios from './utils/axios'
+import Layout from './hoc/Layout/Layout';
 
 class App extends Component {
 
@@ -77,12 +78,14 @@ class App extends Component {
         console.log('not_auth')
       }
       return (
-        <Switch>
-          <Route path='/' exact component={Home}/> 
-          <Route path='/artists/:id/albums' exact component={Albums}/>
-          <Route exact path="/artists/:id" render={() => (<Redirect to='/' />)} />
-          <Route exact path="/artists" render={() => (<Redirect to='/' />)} />
-        </Switch>
+        <Layout>
+          <Switch>
+            <Route path='/' exact component={Home}/> 
+            <Route path='/artists/:id/albums' exact component={Albums}/>
+            <Route exact path="/artists/:id" render={() => (<Redirect to='/' />)} />
+            <Route exact path="/artists" render={() => (<Redirect to='/' />)} />
+          </Switch>
+        </Layout>
       );
     }
   }
