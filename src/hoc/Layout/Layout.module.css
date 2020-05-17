@@ -8,3 +8,21 @@
 .Children {
     padding-bottom: 60px;
 }
+
+@media (max-width: 1248px) {
+    .Children {
+        padding-bottom: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .Children {
+        padding-bottom: 20px;
+    }
+}
+
+@media (max-width: 575px) {
+    .Children {
+        padding-bottom: 15px;
+    }
+}
