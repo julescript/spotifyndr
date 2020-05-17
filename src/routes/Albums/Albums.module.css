@@ -1,0 +1,13 @@
+.Albums {
+    padding-top: 40px;
+}
+
+.Header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.Back{
+    padding-top: 20px;
+}

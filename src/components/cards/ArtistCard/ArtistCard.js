@@ -4,7 +4,7 @@ import RatingStars from '../../UI/RatingStars/RatingStars';
 import { followersString } from '../../../utils/common';
 
 const ArtistCard = (props) => (
-    <div className={classes.ArtistCard} style={{backgroundImage: 'url(' + props.img + ')'}}>
+    <div className={classes.ArtistCard} style={{backgroundImage: 'url(' + props.img + ')'}} onClick={props.onClick}>
         <div className={classes.Spacer}></div>
         <div className={classes.Info}>
             <h3>{props.name}</h3>

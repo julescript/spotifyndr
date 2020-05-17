@@ -1,0 +1,29 @@
+.BackButton {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.BackButton:hover {
+    cursor: pointer;
+    transition: var(--transition-02);
+    transform: var(--scale-hover)
+}
+
+.BackButton:active {
+    transform: var(--scale-active)
+}
+
+.BackButton img{
+    height: 38px;
+    user-select: none;
+}
+
+.BackButton div{
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--color-green);
+    margin-left: 18px;
+    user-select: none;
+}

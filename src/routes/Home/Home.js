@@ -57,6 +57,12 @@ class Home extends Component {
         }
     }
 
+    ArtistClickedHandler = (id) => {
+        this.props.history.push({
+            pathname: '/artists/' + id + '/albums'
+        });
+    }
+
     render () {
         let results = null;
         if (this.state.searchResults && !this.state.loading) {
@@ -66,7 +72,8 @@ class Home extends Component {
                         name={artist.name} 
                         followers={artist.followers.total} 
                         stars={(artist.popularity/20.0)}
-                        key={artist.id}/>
+                        key={artist.id}
+                        onClick={() => this.ArtistClickedHandler(artist.id)} />
                 );
                 console.log(artist)
             });

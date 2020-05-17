@@ -23,6 +23,11 @@
     height: 52px;
     margin: 0 18px;
 }
+.Search input[type=search]{
+    -moz-appearance: none;/* older firefox */
+    -webkit-appearance: none; /* safari, chrome, edge and ie mobile */
+    appearance: none; /* rest */
+ }
 .Search input{
     height: 44px;
     min-width: 350px;

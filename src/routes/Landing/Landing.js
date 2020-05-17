@@ -12,28 +12,6 @@ import IconLogo from '../../components/UI/logo/IconLogo/IconLogo';
 
 class Landing extends Component {
 
-    componentDidMount() {
-        const hash = window.location.hash
-            .substring(1)
-            .split('&')
-            .reduce(function (initial, item) {
-            if (item) {
-                var parts = item.split('=');
-                initial[parts[0]] = decodeURIComponent(parts[1]);
-            }
-            return initial;
-            }, {});
-
-        let token = hash.access_token;
-
-        if (token) {
-            this.props.setToken(token);
-        }
-        else {
-            console.log("Not authorized yet") 
-        }
-    }
-
     loginWithSpotifyHandler = () => {
         let url = 'https://accounts.spotify.com/authorize';
         url += '?response_type=token';

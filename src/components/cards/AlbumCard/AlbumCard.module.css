@@ -1,0 +1,73 @@
+.AlbumCard {
+    margin-bottom: 16px;
+}
+
+.AlbumCard h3, 
+.AlbumCard h4, 
+.AlbumCard img, 
+.AlbumCard button{
+    margin: 0;
+}
+
+.AlbumCard div:first-child {
+    margin-bottom: 20px;
+    width: 100%;
+    background-color: var(--color-lighter-gray);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-1);
+    background-size: cover;
+	background-position: center;
+    background-repeat: no-repeat;
+}
+
+.AlbumCard div:first-child:before{
+    content: "";
+    display: block;
+    padding-top: 100%;  /* ratio of 1:1*/
+	opacity: 0;
+}
+
+.AlbumCard h3 {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--color-dark-gray);
+    margin-bottom: 5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.AlbumCard h4{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-light-gray);
+}
+
+.AlbumCard button{
+    width: 100%;
+    height: 40px;
+    border-radius: var(--border-radius-sm);
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: 800;
+    border: 0;
+    background-color: var(--color-green);
+    color: var(--color-white);
+    cursor: pointer;
+    transition: var(--transition-02);
+}
+
+.AlbumCard button:hover:not(:disabled) {
+    transform: var(--scale-hover)
+}
+
+.AlbumCard button:active:not(:disabled) {
+    transform: var(--scale-active)
+}
+
+.AlbumCard button:disabled {
+    background-color: var(--color-light-gray);
+    cursor: not-allowed;
+}

@@ -16,6 +16,28 @@ class App extends Component {
     loading: true
   }
 
+  componentDidMount() {
+    const hash = window.location.hash
+        .substring(1)
+        .split('&')
+        .reduce(function (initial, item) {
+        if (item) {
+            var parts = item.split('=');
+            initial[parts[0]] = decodeURIComponent(parts[1]);
+        }
+        return initial;
+        }, {});
+
+    let token = hash.access_token;
+
+    if (token) {
+        this.props.setToken(token);
+    }
+    else {
+        console.log("Not authorized yet") 
+    }
+}
+
   fetchUser = () => {
     axios.get('/me/', {
       headers: {
@@ -44,6 +66,8 @@ class App extends Component {
       return (
         <Switch>
           <Route path='/' exact component={Landing}/>
+          <Route path='/artists/:id/albums' exact component={Albums}/>
+          <Route exact path="*" render={() => (<Redirect to='/' />)} />
         </Switch>
       );
     }
@@ -56,8 +80,8 @@ class App extends Component {
         <Switch>
           <Route path='/' exact component={Home}/> 
           <Route path='/artists/:id/albums' exact component={Albums}/>
-          {/* <Route exact path="/artists/:id" render={() => (<Redirect to='/' />)} />
-          <Route exact path="/artists" render={() => (<Redirect to='/' />)} /> */}
+          <Route exact path="/artists/:id" render={() => (<Redirect to='/' />)} />
+          <Route exact path="/artists" render={() => (<Redirect to='/' />)} />
         </Switch>
       );
     }
@@ -74,6 +98,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     delToken: () => dispatch({type: actionTypes.DELETE_AUTH}),
+    setToken: (token) => dispatch({type: actionTypes.ADD_AUTH, token: token}),
     setUser: (user) => dispatch({type: actionTypes.ADD_USER, user: user}),
   }
 };
