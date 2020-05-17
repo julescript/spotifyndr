@@ -7,12 +7,12 @@ Spotify API driven react app that allows you to search for Spotify artists
 ## Project Status
 This project is currently in development. Users can search for Spotify artists and see their albums. Functionality to load more search results when they scroll down (infinite scroll) as well as dark mode is in progress.
 
-## Spotifyndr UI PROTOTYPING (using sketch)
+## Spotifyndr prototype (using Sketch)
   | Landing  | Home/Search  |
   | -----------------| -----|
   | ![Landing](/demo/Landing_Page.jpg) | ![Home/Search](/demo/Search_Page.jpg) |
 
-This design was planned before on paper, then moved to sketch for the fine details.
+This design was planned before on paper, then moved to Sketch app for the fine details.
 Note that i didn't use any styling library or theme, all from scratch and using pure css modules
 
 | Artists results  | Artist's Albums  |
@@ -37,3 +37,11 @@ To Visit App:
 This was a 48 hours challenge project (from Design to Dev) built during a quarantine weekend. Project goals included using react core concepts learned up until this point and familiarizing myself with documentation for new features.  
 
 At the end of the day, the technologies implemented in this project are React, React-Router, Redux, Axios and a significant amount of VanillaJS, JSX, and CSS. I chose to use the `create-react-app` boilerplate to minimize initial setup and invest more time in diving into weird technological rabbit holes.
+
+## Future goals for this project
+
+* Add dark mode
+* Add infinte scroll for pagination
+* Add more search capabilities like searching for music and albums directly
+* Add `redux-thunk` for async auth in redux
+* Add ability to preview music right from the app
