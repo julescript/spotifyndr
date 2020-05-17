@@ -16,3 +16,21 @@
     font-size: 30px;
     font-weight: 500;
 }
+
+@media (max-width: 768px) {
+    .SectionTitle h1 {
+        font-size: 50px;
+    }
+    .SectionTitle h2 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 575px) {
+    .SectionTitle h1 {
+        font-size: 40px;
+    }
+    .SectionTitle h2 {
+        font-size: 18px;
+    }
+}

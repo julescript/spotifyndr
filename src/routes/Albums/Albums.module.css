@@ -11,3 +11,22 @@
 .Back{
     padding-top: 20px;
 }
+
+@media (max-width: 1248px) {
+    .Albums {
+        padding-top: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .Albums {
+        padding-top: 15px;
+    }
+    .Back{
+        padding-top: 15px;
+    }
+}
+
+@media (max-width: 575px) {
+
+}

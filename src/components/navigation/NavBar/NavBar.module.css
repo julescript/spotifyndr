@@ -8,27 +8,19 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-between;
-}
-
-.Search{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
     align-items: center;
 }
-.Search img{
+.NavBar img{
     height: 52px;
     height: 52px;
     margin: 0 18px;
 }
-.Search input[type=search]{
+.NavBar input[type=search]{
     -moz-appearance: none;/* older firefox */
     -webkit-appearance: none; /* safari, chrome, edge and ie mobile */
     appearance: none; /* rest */
  }
-.Search input{
+.NavBar input{
     height: 44px;
     min-width: 350px;
     border: 0;
@@ -40,20 +32,20 @@
     color: var(--color-dark-gray);
 }
 
-.Search input::-webkit-input-placeholder { /* Edge */
+.NavBar input::-webkit-input-placeholder { /* Edge */
     font-weight: 500;
     color: var(--color-light-gray);
 }
-.Search input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+.NavBar input:-ms-input-placeholder { /* Internet Explorer 10-11 */
     font-weight: 500;
     color: var(--color-light-gray);
 }
-.Search input::placeholder {
+.NavBar input::placeholder {
     font-weight: 500;
     color: var(--color-light-gray);
 }
 
-.Search input:disabled {
+.NavBar input:disabled {
     background-color: var(--color-lighter-gray);
     cursor: not-allowed;
 }
@@ -64,6 +56,8 @@
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
+    height: 100%;
+    margin-left: auto;
 }
 .Account div {
     margin-left: 30px;
@@ -83,4 +77,69 @@
     background-size: cover;
 	background-position: center;
     background-repeat: no-repeat;
+}
+
+
+@media (max-width: 1248px) {
+    .NavBar{
+        margin: 24px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .NavBar input{
+        height: 44px;
+        min-width: 245px;
+    }
+    .NavBar{
+        margin: 15px 0;
+    }
+}
+
+@media (max-width: 575px) {
+    .NavBar{
+        min-height: 115px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        border-radius: var(--border-radius-md);
+        padding-top: 10px;
+    }
+    .NavBar img{
+        height: 52px;
+        height: 52px;
+        margin: 0;
+        margin-left: 10px;
+        order: 1;
+    }
+    .NavBar input{
+        height: 44px;
+        width: calc(100% - 20px);
+        margin-left: 10px;
+        border: 0;
+        border-radius: var(--border-radius-md);
+        font-size: 18px;
+        font-weight: 900;
+        box-sizing: border-box;
+        padding: 0 20px;
+        color: var(--color-dark-gray);
+        order: 3;
+    }
+    .Account{
+        background-color: var(--color-dark-gray);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        height: auto;
+        order: 2;
+        margin-left: auto;
+        margin-right: 10px;
+        border-radius: var(--border-radius-md);
+    }
+    .Account img {
+        width: 40px;
+        height: 40px;
+        margin: 5px;
+        margin-left: 20px;
+    }
 }

@@ -8,13 +8,15 @@
 
 @media (max-width: 1200px) {
     .Grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 15px;
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
 @media (max-width: 800px) {
     .Grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -31,7 +33,16 @@
 
 @media (max-width: 575px) {
     .Grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+        grid-auto-rows: auto;
+    }
+}
+
+@media (max-width: 374px) {
+    .Grid {
         grid-template-columns: repeat(1, 1fr);
+        grid-gap: 15px;
         grid-auto-rows: auto;
     }
 }

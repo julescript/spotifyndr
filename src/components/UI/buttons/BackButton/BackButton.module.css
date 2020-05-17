@@ -27,3 +27,24 @@
     margin-left: 18px;
     user-select: none;
 }
+
+@media (max-width: 768px) {
+    .BackButton img{
+        height: 30px;
+        user-select: none;
+        margin-right: 10px;
+    }
+    
+    .BackButton div{
+        display: none;
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--color-green);
+        margin-left: 10px;
+        user-select: none;
+    }
+}
+
+@media (max-width: 575px) {
+
+}
