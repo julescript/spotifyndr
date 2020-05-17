@@ -39,3 +39,15 @@ export const followersString = (number) => {
         return 'No followers'
     }
 } 
+
+export const tracksString = (number) => {
+    if (number > 1) {
+        return (number) + ' tracks';
+    }
+    else if (number === 1) {
+        return (number) + ' track';
+    }
+    else {
+        return 'No tracks'
+    }
+} 

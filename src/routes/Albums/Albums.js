@@ -60,7 +60,7 @@ class Albums extends Component {
                     <AlbumCard key={album.id} 
                         img={album.images[1] ? album.images[1].url : null} 
                         name={album.name}
-                        date={album.release_date} 
+                        date={album.release_date.substring(0, 4)} 
                         tracks={album.total_tracks}
                         onClick={() => this.previewButtonClickedHandler(album.external_urls.spotify)}
                         disabled={false}/> 
