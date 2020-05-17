@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/spotifyndr/static/css/main.592080a7.chunk.css",
+    "main.js": "/spotifyndr/static/js/main.67c857ac.chunk.js",
+    "main.js.map": "/spotifyndr/static/js/main.67c857ac.chunk.js.map",
+    "runtime-main.js": "/spotifyndr/static/js/runtime-main.3db4c61e.js",
+    "runtime-main.js.map": "/spotifyndr/static/js/runtime-main.3db4c61e.js.map",
+    "static/js/2.b10ba747.chunk.js": "/spotifyndr/static/js/2.b10ba747.chunk.js",
+    "static/js/2.b10ba747.chunk.js.map": "/spotifyndr/static/js/2.b10ba747.chunk.js.map",
+    "index.html": "/spotifyndr/index.html",
+    "precache-manifest.f39d220eb9060d11f296faece2c404a2.js": "/spotifyndr/precache-manifest.f39d220eb9060d11f296faece2c404a2.js",
+    "service-worker.js": "/spotifyndr/service-worker.js",
+    "static/css/main.592080a7.chunk.css.map": "/spotifyndr/static/css/main.592080a7.chunk.css.map",
+    "static/js/2.b10ba747.chunk.js.LICENSE.txt": "/spotifyndr/static/js/2.b10ba747.chunk.js.LICENSE.txt",
+    "static/media/back_icon.svg": "/spotifyndr/static/media/back_icon.7a172fc9.svg",
+    "static/media/index.css": "/spotifyndr/static/media/lineto-circular-medium.d71f06b9.ttf",
+    "static/media/logo_icon.svg": "/spotifyndr/static/media/logo_icon.da3ea075.svg",
+    "static/media/LoginCard.module.css": "/spotifyndr/static/media/logo_spotify.ae73e08e.svg",
+    "static/media/star_empty.svg": "/spotifyndr/static/media/star_empty.21cb713c.svg",
+    "static/media/star_filled.svg": "/spotifyndr/static/media/star_filled.765ace4e.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3db4c61e.js",
+    "static/js/2.b10ba747.chunk.js",
+    "static/css/main.592080a7.chunk.css",
+    "static/js/main.67c857ac.chunk.js"
+  ]
+}
