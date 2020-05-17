@@ -12,8 +12,10 @@
     --color-yellow          : #FFA900;
     --color-green           : #1BD760;
 
+    --color-dark-gray-90    : rgba(51, 51, 51, 0.85);
+
     /* Shadows */
-    --shadow-1: 0 30px 40px -10px rgba(0, 0, 0, 0.1);
+    --shadow-1: 0 30px 40px -20px rgba(0, 0, 0, 0.1);
     --shadow-1-active: 0 30px 40px -10px rgba(0, 0, 0, 0.1);
 
     /* Border Radiuses */
@@ -26,7 +28,7 @@
     --transition-03: all 0.3s ease-out;
 
     /* scale */
-    --scale-hover: scale(1.05);
+    --scale-hover: scale(1.025);
     --scale-active: scale(1);
 }
 

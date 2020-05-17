@@ -20,6 +20,7 @@
 }
 .Search img{
     height: 52px;
+    height: 52px;
     margin: 0 18px;
 }
 .Search input{
@@ -69,4 +70,7 @@
     border: 0;
     border-radius: var(--border-radius-sm);
     box-sizing: border-box;
+    background-size: cover;
+	background-position: center;
+    background-repeat: no-repeat;
 }

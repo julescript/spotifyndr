@@ -1,0 +1,18 @@
+.SectionTitle{
+    width: 100%;
+}
+.SectionTitle h1, .SectionTitle h2{
+    margin: 0
+}
+
+.SectionTitle h1 {
+    color: var(--color-dark-gray);
+    font-size: 60px;
+    font-weight: 900;
+}
+
+.SectionTitle h2 {
+    color: var(--color-light-gray);
+    font-size: 30px;
+    font-weight: 500;
+}

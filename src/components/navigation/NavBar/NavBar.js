@@ -12,7 +12,7 @@ class NavBar extends Component {
                 </div>
                 <div className={classes.Account}>
                     <div>julescript</div>
-                    <img src={null}/>
+                    <img src={null} alt=''/>
                 </div>
             </div>
         );

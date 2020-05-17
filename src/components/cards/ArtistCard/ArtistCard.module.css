@@ -1,0 +1,64 @@
+.ArtistCard {
+    background-color: var(--color-lighter-gray);
+    overflow: hidden;
+    border-radius: var(--border-radius-md);
+    position: relative;
+	background-size: cover;
+	background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: var(--shadow-1);
+    cursor: pointer;
+    transition: var(--transition-02);
+}
+
+.ArtistCard:hover {
+    transform: var(--scale-hover)
+}
+
+.ArtistCard:active {
+    transform: var(--scale-active)
+}
+
+.Spacer {
+    width: 100%;
+}
+
+.Spacer:before{
+    content: "";
+    display: block;
+    padding-top: 125%;  /* ratio of 1:1*/
+	opacity: 0;
+}
+
+.Info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--color-dark-gray-90);
+    box-sizing: border-box;
+    padding: 26px 29px ;
+    color: var(--color-white);
+}
+
+.Info h3, .Info p{
+    margin: 0;
+}
+
+.Info h3 {
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.Info p {
+    font-size: 16px;
+    font-weight: 500;
+    opacity: 0.66;
+    margin-bottom: 12px;
+}

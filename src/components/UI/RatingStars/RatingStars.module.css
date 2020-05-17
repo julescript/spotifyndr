@@ -1,0 +1,16 @@
+.RatingStars {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    transform: translateX(-4px);
+}
+
+.RatingStars img{
+    margin: 0;
+    height: 22px;
+    width: 22px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
