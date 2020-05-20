@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import SectionTitle from '../../components/UI/headings/SectionTitle/SectionTitle';
 import CardsGrid from '../../hoc/CardsGrid/CardsGrid';
 import ArtistCard from '../../components/cards/ArtistCard/ArtistCard';
-import { debounce, checkIfBottomReached } from '../../utils/common';
+import { debounce, checkIfBottomReached, isEmptyOrSpaces } from '../../utils/common';
 import axios from '../../utils/axios'
 import { connect } from 'react-redux';
 import WelcomeText from '../../components/UI/WelcomeText/WelcomeText';
@@ -86,7 +86,9 @@ class Home extends Component {
         this.setState({
             searchQuery: q,
         })
-        this.performSearch(q);
+        if (!isEmptyOrSpaces(q)) {
+            this.performSearch(q);
+        }
     }
 
     performSearch(q) {
