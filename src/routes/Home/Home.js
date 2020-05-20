@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import SectionTitle from '../../components/UI/headings/SectionTitle/SectionTitle';
 import CardsGrid from '../../hoc/CardsGrid/CardsGrid';
 import ArtistCard from '../../components/cards/ArtistCard/ArtistCard';
-import { isEmptyOrSpaces } from '../../utils/common';
+import { isEmptyOrSpaces, debounce, throttle } from '../../utils/common';
 import axios from '../../utils/axios'
 import { connect } from 'react-redux';
 import WelcomeText from '../../components/UI/WelcomeText/WelcomeText';
@@ -19,53 +19,57 @@ class Home extends Component {
         searchResults: null,
         searchQuery: '',
         loading: false,
-        error: false
+        error: false,
+        didReachBottom: false
     }
 
-    componentDidMount() {
-    }
+
 
     handleSearch = (e) => {
-        if (!isEmptyOrSpaces(e.target.value)) {
-            this.setState({
-                searchQuery: e.target.value,
-                loading: true,
-                error: false
-            })
-            this.props.onQueryUpdated(e.target.value)
-            this.props.onLoadingUpdated(true);
-            axios.get('/search/', {
-                headers: {
-                    'Authorization': 'Bearer ' + this.props.token,
-                },
-                params: {
-                    'q': e.target.value,
-                    'type': 'artist',
-                    'limit': 12
-                }
-            })
-                .then(res => {
-                    this.setState({
-                        searchResults: res.data.artists,
-                        loading: false,
-                        error: false
-                    })
-                    console.log('GOT EM')
-                    this.props.onResultsUpdated(res.data.artists)
-                    this.props.onLoadingUpdated(false)
-                })
-                .catch(err => {
-                    this.setState({
-                        searchResults: null,
-                        loading: false,
-                        error: err.response
-                    })
-                    console.log('GOT EROOR')
-                    this.props.onResultsUpdated(null)
-                    this.props.onLoadingUpdated(false)
-                })
+        const q = e.target.value;
+        this.setState({
+            searchQuery: q,
+        })
+        this.performSearch(q);
+    }
 
-        }
+    performSearch(q) {
+        this.setState({
+            loading: true,
+            error: false
+        })
+        this.props.onQueryUpdated(q)
+        this.props.onLoadingUpdated(true);
+        axios.get('/search/', {
+            headers: {
+                'Authorization': 'Bearer ' + this.props.token,
+            },
+            params: {
+                'q': q,
+                'type': 'artist',
+                'limit': 12
+            }
+        })
+            .then(res => {
+                this.setState({
+                    searchResults: res.data.artists,
+                    loading: false,
+                    error: false
+                })
+                console.log('GOT EM')
+                this.props.onResultsUpdated(res.data.artists)
+                this.props.onLoadingUpdated(false)
+            })
+            .catch(err => {
+                this.setState({
+                    searchResults: null,
+                    loading: false,
+                    error: err.response
+                })
+                console.log('GOT EROOR')
+                this.props.onResultsUpdated(null)
+                this.props.onLoadingUpdated(false)
+            })
     }
 
     ArtistClickedHandler = (id) => {
