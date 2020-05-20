@@ -74,3 +74,7 @@ export const throttle = (func, limit) => {
         }
     }
 }
+
+export const checkIfBottomReached = () => {     
+   return (document.documentElement.scrollHeight - document.documentElement.scrollTop <= (document.documentElement.clientHeight + 80))
+}

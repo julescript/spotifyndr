@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import SectionTitle from '../../components/UI/headings/SectionTitle/SectionTitle';
 import CardsGrid from '../../hoc/CardsGrid/CardsGrid';
 import ArtistCard from '../../components/cards/ArtistCard/ArtistCard';
-import { debounce } from '../../utils/common';
+import { debounce, checkIfBottomReached } from '../../utils/common';
 import axios from '../../utils/axios'
 import { connect } from 'react-redux';
 import WelcomeText from '../../components/UI/WelcomeText/WelcomeText';
@@ -25,7 +25,7 @@ class Home extends Component {
 
     componentDidMount() {
         window.addEventListener('scroll', debounce(() => {
-            if (this.checkIfBottomReached()) {
+            if (checkIfBottomReached()) {
                 this.setState({
                     didReachBottom: true
                 })
@@ -34,7 +34,7 @@ class Home extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevState.didReachBottom !== this.state.didReachBottom && prevState.didReachBottom == false) {
+        if (prevState.didReachBottom !== this.state.didReachBottom && prevState.didReachBottom === false) {
             if (this.props.results){
                 if(this.props.results.items.length < this.props.results.total && this.props.results.items.length > this.props.results.offset)
                     this.fetchNext()
@@ -78,10 +78,6 @@ class Home extends Component {
                 this.props.onLoadingUpdated(false)
                 console.log(err)
             })
-    }
-
-    checkIfBottomReached() {     
-       return (document.documentElement.scrollHeight - document.documentElement.scrollTop <= (document.documentElement.clientHeight + 80))
     }
 
     handleSearch = (e) => {

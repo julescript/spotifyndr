@@ -30,12 +30,12 @@ class App extends Component {
         }, {});
 
     let token = hash['/access_token'];
-    console.log(token) 
+    // console.log(token) 
     if (token) {
         this.props.setToken(token);
     }
     else {
-        console.log("Not authorized yet") 
+        // console.log("Not authorized yet") 
     }
 }
 
@@ -58,7 +58,7 @@ class App extends Component {
           is_auth: false,
           loading: false
         })
-        console.log('Something went wrong');
+        // console.log('Something went wrong');
       })
   }
 
@@ -74,7 +74,7 @@ class App extends Component {
     else {
       if (!this.state.is_auth && this.props.token) {
         this.fetchUser();
-        console.log('not_auth')
+        // console.log('not_auth')
       }
       return (
         <Layout>
