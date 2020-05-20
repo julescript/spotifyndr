@@ -1,0 +1,19 @@
+.EmptyState{
+    text-align: center;
+    padding: 100px 0;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.EmptyState h2{
+    margin: 0;
+    font-weight: 900;
+    font-size: 2em;
+    color: var(--color-green);
+    margin-bottom: 10px;
+}
+
+.EmptyState p{
+    margin: 0;
+    color: var(--color-dark-gray);
+}

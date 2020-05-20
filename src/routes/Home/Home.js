@@ -12,6 +12,7 @@ import { connect } from 'react-redux';
 import WelcomeText from '../../components/UI/WelcomeText/WelcomeText';
 import Spinner from '../../components/UI/Spinner/Spinner'
 import * as actionTypes from '../../store/actions/search/index';
+import EmptyState from '../../components/UI/EmptyState/EmptyState';
 
 class Home extends Component {
 
@@ -132,6 +133,7 @@ class Home extends Component {
 
     render () {
         let results = null;
+        let emptyState = null;
         if (this.props.results) {
             results = this.props.results.items.map(artist => {
                 return (
@@ -143,6 +145,9 @@ class Home extends Component {
                         onClick={() => this.ArtistClickedHandler(artist.id)} />
                 );
             });
+            if (this.props.results.items.length === 0 && !this.props.loading) {
+                emptyState = <EmptyState q={this.props.query} />
+            }
         }
         if (this.props.loading && !this.props.results) {
             results = <Spinner />
@@ -155,6 +160,7 @@ class Home extends Component {
                         <SectionTitle title={'Artists'} subtitle={'Showing results for “'+this.props.query+'"'}/>
                         {!this.props.loading || this.props.results ? <CardsGrid>{results}</CardsGrid> : results}
                         {this.props.loading && this.props.results ? <Spinner /> : null}
+                        {emptyState}
                     </React.Fragment>
                 ) : (
                     <WelcomeText name={this.props.user ? this.props.user.display_name : 'Hello'}/>
