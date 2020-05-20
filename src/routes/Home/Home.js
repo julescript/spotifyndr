@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import SectionTitle from '../../components/UI/headings/SectionTitle/SectionTitle';
 import CardsGrid from '../../hoc/CardsGrid/CardsGrid';
 import ArtistCard from '../../components/cards/ArtistCard/ArtistCard';
-import { isEmptyOrSpaces, debounce, throttle } from '../../utils/common';
+import { debounce } from '../../utils/common';
 import axios from '../../utils/axios'
 import { connect } from 'react-redux';
 import WelcomeText from '../../components/UI/WelcomeText/WelcomeText';
@@ -23,7 +23,66 @@ class Home extends Component {
         didReachBottom: false
     }
 
+    componentDidMount() {
+        window.addEventListener('scroll', debounce(() => {
+            if (this.checkIfBottomReached()) {
+                this.setState({
+                    didReachBottom: true
+                })
+            }
+        }, 100));
+    }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.didReachBottom !== this.state.didReachBottom && prevState.didReachBottom == false) {
+            if (this.props.results){
+                if(this.props.results.items.length < this.props.results.total && this.props.results.items.length > this.props.results.offset)
+                    this.fetchNext()
+                else
+                    console.log('limit reached no more requests')
+            }
+            
+        }
+    }
+
+    fetchNext() {
+        this.setState({
+            loading: true,
+            error: false
+        })
+        this.props.onLoadingUpdated(true);
+        axios.get(this.props.results.next, {
+            headers: {
+                'Authorization': 'Bearer ' + this.props.token,
+            },
+        })
+            .then(res => {
+                const results = {...res.data.artists}
+                const oldResults = {...this.props.results}
+                results['items'].unshift(...oldResults['items']);
+                this.setState({
+                    searchResults: results,
+                    loading: false,
+                    error: false,
+                    didReachBottom: false
+                })
+                this.props.onResultsUpdated(results)
+                this.props.onLoadingUpdated(false)
+            })
+            .catch(err => {
+                this.setState({
+                    loading: false,
+                    error: err.response,
+                    didReachBottom: true
+                })
+                this.props.onLoadingUpdated(false)
+                console.log(err)
+            })
+    }
+
+    checkIfBottomReached() {     
+       return (document.documentElement.scrollHeight - document.documentElement.scrollTop <= (document.documentElement.clientHeight + 80))
+    }
 
     handleSearch = (e) => {
         const q = e.target.value;
@@ -36,7 +95,8 @@ class Home extends Component {
     performSearch(q) {
         this.setState({
             loading: true,
-            error: false
+            error: false,
+            didReachBottom: false
         })
         this.props.onQueryUpdated(q)
         this.props.onLoadingUpdated(true);
@@ -56,18 +116,14 @@ class Home extends Component {
                     loading: false,
                     error: false
                 })
-                console.log('GOT EM')
                 this.props.onResultsUpdated(res.data.artists)
                 this.props.onLoadingUpdated(false)
             })
             .catch(err => {
                 this.setState({
-                    searchResults: null,
                     loading: false,
                     error: err.response
                 })
-                console.log('GOT EROOR')
-                this.props.onResultsUpdated(null)
                 this.props.onLoadingUpdated(false)
             })
     }
@@ -80,8 +136,7 @@ class Home extends Component {
 
     render () {
         let results = null;
-        if (this.props.results && !this.props.loading) {
-            console.log(this.props.results)
+        if (this.props.results) {
             results = this.props.results.items.map(artist => {
                 return (
                     <ArtistCard img={artist.images[1] ? artist.images[1].url : null} 
@@ -93,7 +148,7 @@ class Home extends Component {
                 );
             });
         }
-        if (this.props.loading) {
+        if (this.props.loading && !this.props.results) {
             results = <Spinner />
         }
         return (
@@ -102,7 +157,8 @@ class Home extends Component {
                 {this.props.query !== '' ? (
                     <React.Fragment>
                         <SectionTitle title={'Artists'} subtitle={'Showing results for “'+this.props.query+'"'}/>
-                        {!this.props.loading ? <CardsGrid>{results}</CardsGrid> : results}
+                        {!this.props.loading || this.props.results ? <CardsGrid>{results}</CardsGrid> : results}
+                        {this.props.loading && this.props.results ? <Spinner /> : null}
                     </React.Fragment>
                 ) : (
                     <WelcomeText name={this.props.user ? this.props.user.display_name : 'Hello'}/>
