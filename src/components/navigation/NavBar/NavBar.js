@@ -3,8 +3,14 @@ import classes from './NavBar.module.css';
 import IconLogo from '../../UI/logo/IconLogo/IconLogo';
 import { DebounceInput } from 'react-debounce-input';
 import nopp from '../../../assets/images/nopp.png'
+import { connect } from 'react-redux';
+import * as actionTypes from '../../../store/actions/auth';
 
 class NavBar extends Component {
+
+    logoutHandler = () => {
+        this.props.delToken()
+    }
 
     render () {
         return (
@@ -22,11 +28,14 @@ class NavBar extends Component {
                     <div className={classes.Account}>
                         <div>{this.props.user.display_name}</div>
                         <img src={nopp} alt=''/>
+                        <div className={classes.DropdownContent}>
+                            <a onClick={this.logoutHandler}>Lougout</a>
+                        </div>
                     </div>
                 ) : (
                     <div className={classes.Account}>
                         <div>Loading</div>
-                        <img src={null} alt=''/>
+                        <img src={nopp} alt=''/>
                     </div>
                 )}
             </div>
@@ -34,4 +43,18 @@ class NavBar extends Component {
     }
 }
 
-export default NavBar;
+const mapStateToProps = state => {
+    return {
+        token: state.authReducer.AUTH_TOKEN,
+        user: state.authReducer.USER,
+        is_auth: state.authReducer.IS_AUTHORIZED,
+    }
+  };
+const mapDispatchToProps = dispatch => {
+    return {
+      delToken: () => dispatch({type: actionTypes.DELETE_AUTH}),
+      setToken: (token) => dispatch({type: actionTypes.ADD_AUTH, token: token}),
+      setUser: (user) => dispatch({type: actionTypes.ADD_USER, user: user}),
+    }
+  };
+  export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
