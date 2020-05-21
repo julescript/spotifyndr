@@ -29,7 +29,7 @@ class NavBar extends Component {
                         <div>{this.props.user.display_name}</div>
                         <img src={nopp} alt=''/>
                         <div className={classes.DropdownContent}>
-                            <a onClick={this.logoutHandler}>Lougout</a>
+                            <a onClick={this.logoutHandler}>Logout</a>
                         </div>
                     </div>
                 ) : (
