@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import classes from './NavBar.module.css';
 import IconLogo from '../../UI/logo/IconLogo/IconLogo';
 import { DebounceInput } from 'react-debounce-input';
+import nopp from '../../../assets/images/nopp.png'
 
 class NavBar extends Component {
 
@@ -20,7 +21,7 @@ class NavBar extends Component {
                 {this.props.user ? (
                     <div className={classes.Account}>
                         <div>{this.props.user.display_name}</div>
-                        <img src={null} alt=''/>
+                        <img src={nopp} alt=''/>
                     </div>
                 ) : (
                     <div className={classes.Account}>

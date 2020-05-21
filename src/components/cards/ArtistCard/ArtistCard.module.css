@@ -1,5 +1,5 @@
 .ArtistCard {
-    background-color: var(--color-lighter-gray);
+    background-color: var(--color-dark-gray);
     overflow: hidden;
     border-radius: var(--border-radius-md);
     position: relative;

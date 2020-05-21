@@ -14,7 +14,7 @@
 
 .AlbumCard div:first-child {
     width: 100%;
-    background-color: var(--color-lighter-gray);
+    background-color: var(--color-dark-gray);
     border-radius: var(--border-radius-md);
     box-shadow: var(--shadow-1);
     background-size: cover;
