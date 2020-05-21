@@ -5,7 +5,7 @@ you can find it deployed on github pages [Spotifynder](https://julescript.github
 Spotify API driven react app that allows you to search for Spotify artists
 
 ## Project Status
-This project is currently in development. Users can search for Spotify artists and see their albums. Dark mode is in progress.
+This project is currently in development. Users can search for Spotify artists and see their albums.
 
 ## Spotifyndr prototype (using Sketch)
   | Landing  | Home/Search  |
@@ -40,7 +40,6 @@ At the end of the day, the technologies implemented in this project are React, R
 
 ## Future goals for this project
 
-* Add dark mode
 * Add more search capabilities like searching for music and albums directly
 * Add `redux-thunk` for async auth in redux
 * Add ability to preview music right from the app
