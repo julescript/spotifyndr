@@ -20,7 +20,6 @@ class App extends Component {
   componentDidMount() {
 
     let tokenStored = localStorage.getItem('token')
-    console.log("tokenStored: ", tokenStored)
 
     if (tokenStored) {
       this.props.setToken(tokenStored);

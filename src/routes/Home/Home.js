@@ -86,6 +86,9 @@ class Home extends Component {
         this.setState({
             searchQuery: q,
         })
+        if (q === '') {
+            this.props.onQueryUpdated(q)
+        }
         if (!isEmptyOrSpaces(q)) {
             this.performSearch(q);
         }
