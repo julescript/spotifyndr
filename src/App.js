@@ -74,7 +74,7 @@ class App extends Component {
       return (
         <Switch>
           <Route path='/' exact component={Landing}/>
-          <Route path='/artists/:id/albums' exact render={() => (<Redirect to='/' />)}/>
+          {/* <Route path='/artists/:id/albums' exact render={() => (<Redirect to='/' />)}/> */}
           {/* <Route exact path="*" render={() => (<Redirect to='/' />)} /> */}
         </Switch>
       );
