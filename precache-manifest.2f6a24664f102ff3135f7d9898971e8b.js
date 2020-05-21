@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1232d0fc5238b2ba3a97e2c63111939c",
+    "revision": "0a1bad7abd48e9bace208bec4c0dce8c",
     "url": "/spotifyndr/index.html"
   },
   {
-    "revision": "9df935ee77038b8b5957",
-    "url": "/spotifyndr/static/css/main.520fe787.chunk.css"
+    "revision": "1b055c0b40df45124112",
+    "url": "/spotifyndr/static/css/main.2922fff2.chunk.css"
   },
   {
-    "revision": "b6314d62ea8d3d0a034c",
-    "url": "/spotifyndr/static/js/2.16d85af0.chunk.js"
+    "revision": "0ce78b1021aa6e801e93",
+    "url": "/spotifyndr/static/js/2.c0cf3cf8.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/spotifyndr/static/js/2.16d85af0.chunk.js.LICENSE.txt"
+    "url": "/spotifyndr/static/js/2.c0cf3cf8.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9df935ee77038b8b5957",
-    "url": "/spotifyndr/static/js/main.0c1cdbe0.chunk.js"
+    "revision": "1b055c0b40df45124112",
+    "url": "/spotifyndr/static/js/main.24c7ad0a.chunk.js"
   },
   {
     "revision": "a0d949c4e7e4a3aa2bb6",
