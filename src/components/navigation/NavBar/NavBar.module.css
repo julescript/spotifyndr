@@ -60,7 +60,11 @@
     margin-left: auto;
     cursor: pointer;
     position: relative;
-    border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+    border-radius: 0 var(--border-radius-sm) 0 0;
+}
+
+.Account:hover  {
+    border-radius: 0 var(--border-radius-sm) 0 0;
 }
 
 .DropdownContent {
@@ -68,26 +72,26 @@
     position: absolute;
     width: 100%;
     top: calc(100%);
-    border-radius: var(--border-radius-xs);
     left: 0;
     background-color:transparent;
     box-shadow: var(--shadow-1);
     z-index: 1;
     box-sizing: border-box;
     overflow: hidden;
-    padding-top: 10px;
+    border-radius: 0 0 var(--border-radius-xs) var(--border-radius-xs);
 }
 
 .DropdownContent a {
     background-color:white;
-    color: red;
+    color: var(--color-red);
     padding: 15px 20px;
     text-decoration: none;
     display: block;
+    transition: all 0.2s ease-in-out;
 }
 
 .DropdownContent a:hover {
-    background-color:red;
+    background-color: var(--color-red);
     color: white;
 }
 
