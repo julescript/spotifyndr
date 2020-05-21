@@ -10,8 +10,10 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.ADD_AUTH:
+            localStorage.setItem('token', action.token)
             return updateObject(state, {AUTH_TOKEN: action.token})
         case actionTypes.DELETE_AUTH:
+            localStorage.setItem('token', null)
             return updateObject(state, {AUTH_TOKEN: null})
         case actionTypes.ADD_USER:
             return updateObject(state, {USER: action.user, IS_AUTHORIZED: true})

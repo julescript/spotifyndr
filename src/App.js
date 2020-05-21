@@ -18,6 +18,14 @@ class App extends Component {
   }
 
   componentDidMount() {
+
+    let tokenStored = localStorage.getItem('token')
+    console.log("tokenStored: ", tokenStored)
+
+    if (tokenStored) {
+      this.props.setToken(tokenStored);
+    }
+
     const hash = window.location.hash
         .substring(1)
         .split('&')
@@ -34,9 +42,8 @@ class App extends Component {
     if (token) {
         this.props.setToken(token);
     }
-    else {
-        // console.log("Not authorized yet") 
-    }
+
+
 }
 
   fetchUser = () => {
