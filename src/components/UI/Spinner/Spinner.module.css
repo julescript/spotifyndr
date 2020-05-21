@@ -15,6 +15,13 @@
 .light {
   background-color: var(--color-lighter-gray) !important;
 }
+
+@media (prefers-color-scheme: dark) {
+  .LoaderParent {
+    background-color: var(--color-dark-gray);
+  }
+}
+
 .Loader {
   font-size: 10px;
   position: relative;
