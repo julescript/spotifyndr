@@ -17,6 +17,16 @@
     font-weight: 500;
 }
 
+@media (prefers-color-scheme: dark) {
+    .SectionTitle h1 {
+        color: var(--color-white);
+    }
+    
+    .SectionTitle h2 {
+        color: var(--color-light-gray);
+    }
+}
+
 @media (max-width: 768px) {
     .SectionTitle h1 {
         font-size: 50px;

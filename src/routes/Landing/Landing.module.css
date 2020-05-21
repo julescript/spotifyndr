@@ -17,6 +17,15 @@ body, html {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1bd760', endColorstr='#f5f5f5',GradientType=1 );
 }
 
+@media (prefers-color-scheme: dark) {
+    .Landing {
+        background: -moz-linear-gradient(left, #1bd760 1%, #1bd760 50%, #121212 50%, #121212 100%);
+        background: -webkit-linear-gradient(left, #1bd760 1%,#1bd760 50%,#121212 50%,#121212 100%);
+        background: linear-gradient(to right, #1bd760 1%,#1bd760 50%,#121212 50%,#121212 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1bd760', endColorstr='#121212',GradientType=1 );
+    }
+}
+
 .leftPane, .rightPane {
     width: 100%;
     display: flex;

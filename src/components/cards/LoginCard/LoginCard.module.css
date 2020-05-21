@@ -44,6 +44,21 @@
     top: 7px;
 }
 
+@media (prefers-color-scheme: dark) {
+    .LoginCard {
+        background-color: var(--color-dark-gray) !important;
+    }
+    
+    .LoginCard h3{
+        color: var(--color-white);
+    }
+    
+    .LoginCard button{
+        background-color: var(--color-white);
+        color: var(--color-dark-gray);
+    }
+}
+
 .LoginCard button:hover:not(:disabled) {
     transform: var(--scale-hover)
 }

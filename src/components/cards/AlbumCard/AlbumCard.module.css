@@ -50,6 +50,17 @@
     color: var(--color-light-gray);
 }
 
+@media (prefers-color-scheme: dark) {
+    .AlbumCard h3 {
+        color: var(--color-white);
+    }
+    .AlbumCard h4{
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--color-light-gray);
+    }
+}
+
 .AlbumCard button{
     box-sizing: border-box;
     box-shadow: var(--shadow-1);

@@ -36,8 +36,16 @@
     color: var(--color-light-gray);
 }
 
-@media (max-width: 1248px) {
-
+@media (prefers-color-scheme: dark) {
+    .WelcomeText h1 {
+        color: var(--color-white);
+    }
+    .WelcomeText h2 {
+        color: var(--color-white);
+    }
+    .WelcomeText h3 {
+        color: var(--color-light-gray);
+    }
 }
 
 @media (max-width: 768px) {
