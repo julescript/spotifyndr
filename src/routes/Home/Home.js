@@ -13,6 +13,7 @@ import WelcomeText from '../../components/UI/WelcomeText/WelcomeText';
 import Spinner from '../../components/UI/Spinner/Spinner'
 import * as actionTypes from '../../store/actions/search/index';
 import EmptyState from '../../components/UI/EmptyState/EmptyState';
+import WithErrorHandler from '../../hoc/WithErrorHandler/WithErrorHandler';
 
 class Home extends Component {
 
@@ -88,6 +89,7 @@ class Home extends Component {
         })
         if (q === '') {
             this.props.onQueryUpdated(q)
+            this.props.onResultsUpdated(null)
         }
         if (!isEmptyOrSpaces(q)) {
             this.performSearch(q);
@@ -161,12 +163,12 @@ class Home extends Component {
             <Container>
                 <NavBar onChange={this.handleSearch} user={this.props.user} query={this.props.query}/>
                 {this.props.query !== '' ? (
-                    <React.Fragment>
+                    <WithErrorHandler>
                         <SectionTitle title={'Artists'} subtitle={'Showing results for “'+this.props.query+'"'}/>
                         {!this.props.loading || this.props.results ? <CardsGrid>{results}</CardsGrid> : results}
                         {this.props.loading && this.props.results ? <Spinner /> : null}
                         {emptyState}
-                    </React.Fragment>
+                    </WithErrorHandler>
                 ) : (
                     <WelcomeText name={this.props.user ? this.props.user.display_name : 'Hello'}/>
                 )}

@@ -10,6 +10,7 @@ import axios from '../../utils/axios'
 import { connect } from 'react-redux';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import { debounce, checkIfBottomReached } from '../../utils/common';
+import WithErrorHandler from '../../hoc/WithErrorHandler/WithErrorHandler';
 
 class Albums extends Component {
 
@@ -135,8 +136,10 @@ class Albums extends Component {
                         <BackButton onClick={this.backButtonHandler}/>
                     </div>
                 </div>
-                {!this.state.loading || this.state.albums ? <CardsGrid>{albums}</CardsGrid> : albums}
-                {this.state.loading && this.state.albums ? <Spinner /> : null}
+                <WithErrorHandler>
+                    {!this.state.loading || this.state.albums ? <CardsGrid>{albums}</CardsGrid> : albums}
+                    {this.state.loading && this.state.albums ? <Spinner /> : null}
+                </WithErrorHandler>
             </Container>
         );
     }

@@ -1,0 +1,25 @@
+.ErrorState{
+    text-align: center;
+    padding: 100px 0;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.ErrorState h2{
+    margin: 0;
+    font-weight: 900;
+    font-size: 2em;
+    color: var(--color-red);
+    margin-bottom: 10px;
+}
+
+.ErrorState p{
+    margin: 0;
+    color: var(--color-dark-gray);
+}
+
+@media (prefers-color-scheme: dark) {
+    .ErrorState p{
+        color: var(--color-light-gray);
+    }
+}
